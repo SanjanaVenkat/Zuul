@@ -153,3 +153,21 @@ class Chemistry {
   char south[];
   char west[];
 };
+
+
+class Objects {
+ public:
+  char* getCalc();
+  char* getMap();
+  char* getFood();
+  char* getBack();
+  char* getPaint();
+  char* getNone();
+ private:
+  char calc[];
+  char map[];
+  char food[];
+  char back[];
+  char paint[];
+  char none[];
+};

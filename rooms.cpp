@@ -230,3 +230,42 @@ char* Chemistry::getWest() {
   strcpy(west, w);
   return west;
 }
+
+
+
+//objects
+char* Objects::getCalc() {
+  char c[] = "Calculator";
+  strcpy(calc, c);
+  return calc;
+}
+
+char* Objects::getMap() {
+  char m[] = "Map";
+  strcpy(map, m);
+  return map;
+}
+
+char* Objects::getFood() {
+  char f[] = "Food";
+  strcpy(food, f);
+  return food;
+}
+
+char* Objects::getBack() {
+  char b[] = "Backpack";
+  strcpy(back, b);
+  return back;
+}
+
+char* Objects::getPaint() {
+  char p[] = "Paint";
+  strcpy(paint, p);
+  return paint;
+}
+
+char* Objects::getNone() {
+  char n[] = "None";
+  strcpy(none, n);
+  return none;
+}
