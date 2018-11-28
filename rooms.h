@@ -10,7 +10,7 @@ class Bathroom {
   // void setEast();
   char* getEast();
  private:
-  char east[];
+  char east[100];
 
 };
 
@@ -20,9 +20,9 @@ class Math {
   char* getNorth();
   char* getEast();
  private:
-  char north[];
-  char west[];
-  char east[];
+  char north[100];
+  char west[100];
+  char east[100];
 };
 
 
@@ -31,8 +31,8 @@ class Spanish {
   char* getWest();
   char* getNorth();
  private:
-  char west[];
-  char north[];
+  char west[100];
+  char north[100];
 };
 
 
@@ -42,9 +42,9 @@ class Physics {
   char* getSouth();
   char* getEast();
  private:
-  char north[];
-  char south[];
-  char east[];
+  char north[100];
+  char south[100];
+  char east[100];
 };
 
 class Writing {
@@ -53,9 +53,9 @@ class Writing {
   char* getEast();
   char* getSouth();
  private:
-  char south[];
-  char east[];
-  char west[];
+  char south[100];
+  char east[100];
+  char west[100];
 };
 
 
@@ -63,7 +63,7 @@ class History {
  public:
   char* getWest();
  private:
-  char west[];
+  char west[100];
 };
 
 class One {
@@ -72,9 +72,9 @@ class One {
   char* getSouth();
   char* getEast();
  private:
-  char north[];
-  char south[];
-  char east[];
+  char north[100];
+  char south[100];
+  char east[100];
 };
 
 
@@ -82,7 +82,7 @@ class Start {
  public:
   char* getWest();
  private:
-  char west[];
+  char west[100];
 };
 
 class Cafeteria {
@@ -91,9 +91,9 @@ class Cafeteria {
   char* getEast();
   char* getNorth();
  private:
-  char south[];
-  char east[];
-  char north[];
+  char south[100];
+  char east[100];
+  char north[100];
 };
 
 class Commons {
@@ -102,9 +102,9 @@ class Commons {
   char* getEast();
   char* getNorth();
  private:
-  char west[];
-  char east[];
-  char north[];
+  char west[100];
+  char east[100];
+  char north[100];
 };
 
 class Student {
@@ -112,15 +112,15 @@ class Student {
   char* getWest();
   char* getNorth();
  private:
-  char west[];
-  char north[];
+  char west[100];
+  char north[100];
 };
 
 class Win {
  public:
   char* getEast();
  private:
-  char east[];
+  char east[100];
 };
 
 class Gym {
@@ -129,9 +129,9 @@ class Gym {
   char* getEast();
   char* getWest();
  private:
-  char south[];
-  char east[];
-  char west[];
+  char south[100];
+  char east[100];
+  char west[100];
 };
 
 class Art {
@@ -140,9 +140,9 @@ class Art {
   char* getSouth();
   char* getWest();
  private:
-  char east[];
-  char south[];
-  char west[];
+  char east[100];
+  char south[100];
+  char west[100];
 };
 
 class Chemistry {
@@ -150,8 +150,8 @@ class Chemistry {
   char* getSouth();
   char* getWest();
  private:
-  char south[];
-  char west[];
+  char south[100];
+  char west[100];
 };
 
 
@@ -164,10 +164,10 @@ class Objects {
   char* getPaint();
   char* getNone();
  private:
-  char calc[];
-  char map[];
-  char food[];
-  char back[];
-  char paint[];
-  char none[];
+  char calc[100];
+  char map[100];
+  char food[100];
+  char back[100];
+  char paint[100];
+  char none[100];
 };
