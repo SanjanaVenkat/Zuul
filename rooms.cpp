@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "rooms.h"
+#include <vector>
 
 using namespace std;
 
@@ -12,6 +13,37 @@ char* Bathroom::getEast() {
   strcpy(east, e);
   return east;
 }
+Bathroom::Bathroom(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Bathroom::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Bathroom::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //math exits
 char* Math::getNorth() {
@@ -32,6 +64,37 @@ char* Math::getWest() {
   return west;
 }
 
+Math::Math(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Math::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Math::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //spanish exits
 char* Spanish::getNorth() {
@@ -45,6 +108,39 @@ char* Spanish::getWest() {
   strcpy(west, w);
   return west;
 }
+
+Spanish::Spanish(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Spanish::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Spanish::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
+
 
 //physics exits
 char* Physics::getNorth() {
@@ -66,6 +162,38 @@ char* Physics::getEast() {
 
 }
 
+Physics::Physics(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Physics::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Physics::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
+
 
 //writing exits
 char* Writing::getWest() {
@@ -85,6 +213,38 @@ char* Writing::getSouth() {
   strcpy(south, s);
   return south;
 }
+Writing::Writing(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Writing::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Writing::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
+
 
 //history exits
 char* History::getWest() {
@@ -92,6 +252,39 @@ char* History::getWest() {
   strcpy(west, w);
   return west;
 }
+
+History::History(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void History::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* History::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
+
 
 //one hall exits
 char* One::getNorth() {
@@ -112,12 +305,76 @@ char* One::getEast() {
   return east;
 }
 
+One::One(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void One::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* One::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
+
 //1-20 exits
 char* Start::getWest() {
   char w[] = "West";
   strcpy(west, w);
   return west;
 }
+
+Start::Start(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Start::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Start::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //cafeteria exits
 char* Cafeteria::getSouth() {
@@ -138,6 +395,37 @@ char* Cafeteria::getNorth() {
   return north;
 }
 
+Cafeteria::Cafeteria(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Cafeteria::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Cafeteria::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //commons exits
 char* Commons::getWest() {
@@ -157,6 +445,38 @@ char* Commons::getNorth() {
   strcpy(north, n);
   return north;
 }
+Commons::Commons(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Commons::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Commons::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
+
 
 //student center exits
 char* Student::getWest() {
@@ -171,6 +491,37 @@ char* Student::getNorth() {
   strcpy(north, n);
   return north;
 }
+Student::Student(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Student::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Student::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //winning room exits
 char* Win::getEast() {
@@ -178,6 +529,38 @@ char* Win::getEast() {
   strcpy(east, e);
   return east;
 }
+
+Win::Win(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Win::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Win::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //gym exits
 char* Gym::getSouth() {
@@ -198,6 +581,37 @@ char* Gym::getWest() {
   return west;
 }
 
+Gym::Gym(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Gym::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Gym::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //art class exits
 char* Art::getSouth() {
@@ -217,6 +631,37 @@ char* Art::getWest() {
   strcpy(west, w);
   return west;
 }
+Art::Art(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Art::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Art::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 //chemistry class exits
 char* Chemistry::getSouth() {
@@ -231,41 +676,44 @@ char* Chemistry::getWest() {
   return west;
 }
 
+Chemistry::Chemistry(){
+  vector <Objects*>* objectlist = new vector<Objects*>();
+}
+
+void Chemistry::addObject(char ob[]) {
+  Objects* o = new Objects();
+  o->setObject(ob);
+  objectlist->push_back(o);
+}
+
+Objects* Chemistry::deleteObject(char ob[]) {
+  int index = -1;
+  char item[100];
+  cout << "What do you want to pick up from this room?" << endl;
+  cin >> item;
+  for (int i = 0; i < objectlist->size(); i++) {
+    Objects* o = (*objectlist)[i];
+    if (strcmp(o->getObject(), item) == 0) {
+      index = i;
+      break;
+    }
+  }
+    if (index >= 0) {
+    Objects* o = (*objectlist)[index];
+    objectlist->erase(objectlist->begin()+index);
+    return o;
+    }
+  else {
+    return NULL;
+    }
+ }
 
 
 //objects
-char* Objects::getCalc() {
-  char c[] = "Calculator";
-  strcpy(calc, c);
-  return calc;
+void Objects::setObject(char o[]) {
+  strcpy(object, o);
 }
 
-char* Objects::getMap() {
-  char m[] = "Map";
-  strcpy(map, m);
-  return map;
-}
-
-char* Objects::getFood() {
-  char f[] = "Food";
-  strcpy(food, f);
-  return food;
-}
-
-char* Objects::getBack() {
-  char b[] = "Backpack";
-  strcpy(back, b);
-  return back;
-}
-
-char* Objects::getPaint() {
-  char p[] = "Paint";
-  strcpy(paint, p);
-  return paint;
-}
-
-char* Objects::getNone() {
-  char n[] = "None";
-  strcpy(none, n);
-  return none;
+char* Objects::getObject() {
+  return object;
 }
