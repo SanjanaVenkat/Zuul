@@ -27,6 +27,9 @@ void pickupObject(Room* room, vector <Objects*>* inventory) {
       inventory->push_back(removedObject);
       cout << "Item picked up and removed from room" << endl;
     }
+    else {
+      cout << "Item not valid" << endl;
+    }
     cout << "Which exit do you want to take? Or pickup/drop off items?" << endl;
 }
 
@@ -49,6 +52,9 @@ char object[100];
       inventory->erase(inventory->begin()+index);
       objectlist->push_back(removedObject);
       cout << "Item removed from inventory and added to room" << endl;
+    }
+    else {
+      cout << "Item not valid" << endl;
     }
     cout << "Which exit do you want to take? Or pickup/drop off items?" << endl;
   }
