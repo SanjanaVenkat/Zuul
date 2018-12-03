@@ -15,10 +15,11 @@ void pickupObject(Room* room, vector <Objects*>* inventory) {
   int index = -1;
   vector <Objects*>* objectlist = room->getObjectlist();
   for (int i = 0; i < objectlist->size(); i++) {
-    index = i;
+   
     Objects* o = (*objectlist)[i];
     if (strcmp(object, o->getObject()) == 0) {
-	break;
+      index = i;
+      break;
       }
   }
     if (index > -1) {
@@ -28,7 +29,7 @@ void pickupObject(Room* room, vector <Objects*>* inventory) {
       cout << "Item picked up and removed from room" << endl;
     }
     else {
-      cout << "Item not valid" << endl;
+      cout << "Object not valid" << endl;
     }
     cout << "Which exit do you want to take? Or pickup/drop off items?" << endl;
 }
@@ -41,9 +42,9 @@ char object[100];
   int index = -1;
   vector <Objects*>* objectlist = room->getObjectlist();
   for (int i = 0; i < inventory->size(); i++) {
-    index = i;
     Objects* o = (*inventory)[i];
     if (strcmp(object, o->getObject()) == 0) {
+      index = i;
         break;
       }
   }
