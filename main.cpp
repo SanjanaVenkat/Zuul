@@ -5,14 +5,63 @@
 
 using namespace std;
 
+void pickupObject(Room* room, vector <Objects*>* inventory) {
+  char object[100];
+  cout << "What object do you want to pick up?" << endl;
+  cin >> object;
+  int index = -1;
+  vector <Objects*>* objectlist = room->getObjectlist();
+  for (int i = 0; i < objectlist->size(); i++) {
+    index = i;
+    Objects* o = (*objectlist)[i];
+    if (strcmp(object, o->getObject()) == 0) {
+	break;
+      }
+  }
+    if (index > -1) {
+      Objects* removedObject = (*objectlist)[index];
+      objectlist->erase(objectlist->begin()+index);
+      inventory->push_back(removedObject);
+      cout << "Item picked up and removed from room" << endl;
+    }
+    cout << "Which exit do you want to take? Or pickup/drop off items?" << endl;
+}
 
-void printRoom(Room* room) {
+  void dropoffObject(Room* room, vector <Objects*>* inventory) {
+char object[100];
+  cout << "What object do you want to drop off?" << endl;
+  cin >> object;
+  int index = -1;
+  vector <Objects*>* objectlist = room->getObjectlist();
+  for (int i = 0; i < inventory->size(); i++) {
+    index = i;
+    Objects* o = (*inventory)[i];
+    if (strcmp(object, o->getObject()) == 0) {
+        break;
+      }
+  }
+    if (index > -1) {
+      Objects* removedObject = (*inventory)[index];
+      inventory->erase(inventory->begin()+index);
+      objectlist->push_back(removedObject);
+      cout << "Item removed from inventory and added to room" << endl;
+    }
+    cout << "Which exit do you want to take? Or pickup/drop off items?" << endl;
+  }
+  
+void printRoom(Room* room, vector <Objects*>* inventory) {
   cout << "You are in " << room->getType() << endl;
   cout << "Object(s) in room: ";
   vector <Objects*>* objectlist = room->getObjectlist();
   for (int i = 0; i < objectlist->size(); i++) {
     Objects* o = (*objectlist)[i];
-    cout << o->getObject();
+    cout << o->getObject() << " ";
+  }
+  cout << endl;
+  cout << "You are carrying: ";
+  for (int i = 0; i < inventory->size(); i++) {
+    Objects* o = (*inventory)[i];
+    cout << o->getObject() << " ";
   }
   cout << endl;
   cout << "Exits: ";
@@ -29,7 +78,7 @@ void printRoom(Room* room) {
     cout << "South ";
   }
   cout << endl;
-  cout<< "Which exit do you want to take?" << endl;
+  cout<< "Which exit do you want to take? Or pickup/drop off items?" << endl;
 }
 
 
@@ -126,37 +175,53 @@ int main() {
   chemistry->setSouth(student);
   chemistry->setWest(art);
 
+  vector <Objects*>* inventory = new vector <Objects*>();
   
   Room* currentRoom = starting;
-  printRoom(currentRoom);
+  printRoom(currentRoom, inventory);
   char response[10];
   char quit[] = "Quit";
   char east[] = "East";
   char west[] = "West";
   char south[] = "South";
   char north[] = "North";
+  char pickup[] = "Pickup";
+  char dropoff[] = "Dropoff";
   cin >>response;
   while (strcmp(quit, response) != 0) {
     if (strcmp(response, east) == 0 && currentRoom->getEast() != NULL) {
+      cout << "Exiting east" << endl;
       currentRoom = currentRoom->getEast();
-      printRoom(currentRoom);
+      printRoom(currentRoom, inventory);
       cin >> response;
     }
-     if (strcmp(response, west) == 0 && currentRoom->getWest() != NULL) {
-       currentRoom = currentRoom->getWest();
-       printRoom(currentRoom);
+   else if (strcmp(response, west) == 0 && currentRoom->getWest() != NULL) {
+     cout << "Exiting west" << endl;
+     currentRoom = currentRoom->getWest();
+       printRoom(currentRoom, inventory);
        cin >> response;
      }
- if (strcmp(response, north) == 0 && currentRoom->getNorth() != NULL) {
-   currentRoom = currentRoom->getNorth();
-      printRoom(currentRoom);
+else if (strcmp(response, north) == 0 && currentRoom->getNorth() != NULL) {
+  cout << "Exiting north" << endl;
+  currentRoom = currentRoom->getNorth();
+   printRoom(currentRoom, inventory);
       cin >> response;
  }
- if (strcmp(response, south) == 0 && currentRoom->getSouth() != NULL) {
-   currentRoom = currentRoom->getSouth();
-   printRoom(currentRoom);
+else if (strcmp(response, south) == 0 && currentRoom->getSouth() != NULL) {
+  cout << "Exiting south" << endl;
+  currentRoom = currentRoom->getSouth();
+   printRoom(currentRoom, inventory);
    cin >> response;
     }
+
+ else if (strcmp(response, pickup) == 0) {
+   pickupObject(currentRoom, inventory);
+   cin >> response;
+ }
+ else if (strcmp(response, dropoff) == 0) {
+   dropoffObject(currentRoom, inventory);
+   cin >> response;
+ }
   }
   return 0;
 }
