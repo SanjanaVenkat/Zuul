@@ -2,28 +2,108 @@
 #include <cstring>
 #include "rooms.h"
 #include <vector>
+#include <map>
+#include <iterator>
 
 using namespace std;
 
 //put the parent class here later
 
-//bathroom exits
-char* Bathroom::getEast() {
-  char e[] = "East";
-  strcpy(east, e);
-  return east;
-}
-Bathroom::Bathroom(){
-  vector <Objects*>* objectlist = new vector<Objects*>();
+void Objects::setObject(char o[]) {
+  strcpy(object, o);
 }
 
-void Bathroom::addObject(char ob[]) {
+char* Objects::getObject() {
+  return object;
+}
+
+//rooms
+
+void Room::setType(char t[]) {
+  strcpy(type, t);
+}
+
+char* Room::getType() {
+  return type;
+}
+
+void Room::setEast(Room* room) {
+  exits->insert(make_pair(0, room));
+}
+
+Room* Room::getEast() {
+  map<int, Room*>::iterator it;
+  it = exits->find(0);
+  if (it != exits->end()) {
+    return it->second;
+  }
+  else {
+    return NULL;
+  }
+}
+void Room::setWest(Room* room) {
+   exits->insert(make_pair(1, room));
+}
+
+Room* Room::getWest() {
+  map<int, Room*>::iterator it;
+  it = exits->find(1);
+  if (it != exits->end()) {
+    return it->second;
+  }
+  else {
+    return NULL;
+  }
+}
+void Room::setNorth(Room* room) {
+   exits->insert(make_pair(2, room));
+}
+
+Room* Room::getNorth() {
+  map<int, Room*>::iterator it;
+  it = exits->find(2);
+  if (it != exits->end()) {
+    return it->second;
+  }
+  else {
+    return NULL;
+  }
+}
+void Room::setSouth(Room* room) {
+   exits->insert(make_pair(3, room));
+}
+
+Room* Room::getSouth() {
+   map<int, Room*>::iterator it;
+  it = exits->find(3);
+  if (it != exits->end()) {
+    return it->second;
+  }
+  else {
+    return NULL;
+  }
+}
+
+vector <Objects*>* Room::getObjectlist() {
+  return  objectlist;
+}
+
+Room::Room() {
+ objectlist = new vector<Objects*>();
+ exits = new map<int, Room*>();
+}
+
+void Room::addObject(char ob[]) {
   Objects* o = new Objects();
   o->setObject(ob);
+
+  if (objectlist == NULL)
+    cout << "NULL objectlist" << endl;
+  
   objectlist->push_back(o);
 }
 
-Objects* Bathroom::deleteObject(char ob[]) {
+Objects* Room::deleteObject(char ob[]) {
   int index = -1;
   char item[100];
   cout << "What do you want to pick up from this room?" << endl;
@@ -45,6 +125,14 @@ Objects* Bathroom::deleteObject(char ob[]) {
     }
  }
 
+
+
+
+
+
+
+
+/*
 //math exits
 char* Math::getNorth() {
   char n[] = "North";
@@ -717,3 +805,4 @@ void Objects::setObject(char o[]) {
 char* Objects::getObject() {
   return object;
 }
+*/
