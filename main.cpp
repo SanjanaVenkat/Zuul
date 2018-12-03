@@ -50,6 +50,7 @@ char object[100];
   }
   
 void printRoom(Room* room, vector <Objects*>* inventory) {
+  
   cout << "You are in " << room->getType() << endl;
   cout << "Object(s) in room: ";
   vector <Objects*>* objectlist = room->getObjectlist();
@@ -79,7 +80,8 @@ void printRoom(Room* room, vector <Objects*>* inventory) {
   }
   cout << endl;
   cout<< "Which exit do you want to take? Or pickup/drop off items?" << endl;
-}
+
+  }
 
 
 int main() {
@@ -176,7 +178,7 @@ int main() {
   chemistry->setWest(art);
 
   vector <Objects*>* inventory = new vector <Objects*>();
-  
+  bool running = true;
   Room* currentRoom = starting;
   printRoom(currentRoom, inventory);
   char response[10];
@@ -189,29 +191,54 @@ int main() {
   char dropoff[] = "Dropoff";
   cin >>response;
   while (strcmp(quit, response) != 0) {
-    if (strcmp(response, east) == 0 && currentRoom->getEast() != NULL) {
+
+  if (strcmp(response, east) == 0 && currentRoom->getEast() != NULL) {
       cout << "Exiting east" << endl;
       currentRoom = currentRoom->getEast();
+ if (strcmp(winc, currentRoom->getType()) == 0) {
+    cout << "You are in the winning room! ";
+    cout << "You have won the game!!" << endl;
+    return 0;
+  }
       printRoom(currentRoom, inventory);
+      
       cin >> response;
+      
     }
    else if (strcmp(response, west) == 0 && currentRoom->getWest() != NULL) {
      cout << "Exiting west" << endl;
      currentRoom = currentRoom->getWest();
-       printRoom(currentRoom, inventory);
-       cin >> response;
+ if (strcmp(winc, currentRoom->getType()) == 0) {
+    cout << "You are in the winning room! ";
+    cout << "You have won the game!!" << endl;
+    return 0;
+  }
+     printRoom(currentRoom, inventory);
+  
+     cin >> response;
+     
      }
 else if (strcmp(response, north) == 0 && currentRoom->getNorth() != NULL) {
   cout << "Exiting north" << endl;
   currentRoom = currentRoom->getNorth();
-   printRoom(currentRoom, inventory);
-      cin >> response;
+ if (strcmp(winc, currentRoom->getType()) == 0) {
+    cout << "You are in the winning room! ";
+    cout << "You have won the game!!" << endl;
+    return 0;
+  }
+  printRoom(currentRoom, inventory);
+  cin >> response;
  }
 else if (strcmp(response, south) == 0 && currentRoom->getSouth() != NULL) {
   cout << "Exiting south" << endl;
   currentRoom = currentRoom->getSouth();
-   printRoom(currentRoom, inventory);
-   cin >> response;
+ if (strcmp(winc, currentRoom->getType()) == 0) {
+    cout << "You are in the winning room! ";
+    cout << "You have won the game!!" << endl;
+    return 0;
+  }
+  printRoom(currentRoom, inventory);
+  cin >> response;
     }
 
  else if (strcmp(response, pickup) == 0) {
@@ -222,6 +249,6 @@ else if (strcmp(response, south) == 0 && currentRoom->getSouth() != NULL) {
    dropoffObject(currentRoom, inventory);
    cin >> response;
  }
-  }
+    }
   return 0;
 }
