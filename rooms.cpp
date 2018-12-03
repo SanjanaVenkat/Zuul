@@ -1,3 +1,6 @@
+//Sanjana Venkat
+//12.3.18
+//contains all the information for two classes
 #include <iostream>
 #include <cstring>
 #include "rooms.h"
@@ -7,30 +10,31 @@
 
 using namespace std;
 
-//put the parent class here later
-
+//objects class
+//sets name of object
 void Objects::setObject(char o[]) {
   strcpy(object, o);
 }
-
+//returns object name
 char* Objects::getObject() {
   return object;
 }
 
-//rooms
-
+//rooms class
+//sets name of room
 void Room::setType(char t[]) {
   strcpy(type, t);
 }
-
+//returns room name
 char* Room::getType() {
   return type;
 }
-
+//east is assigned '0' using map
+//sets east by making pair with int 0 and another room
 void Room::setEast(Room* room) {
   exits->insert(make_pair(0, room));
 }
-
+//using the int 0, gets exit east from a room if it is a valid exit, else returns null
 Room* Room::getEast() {
   map<int, Room*>::iterator it;
   it = exits->find(0);
@@ -41,6 +45,7 @@ Room* Room::getEast() {
     return NULL;
   }
 }
+//west is same as east except for int 1 instead of 0
 void Room::setWest(Room* room) {
    exits->insert(make_pair(1, room));
 }
@@ -55,6 +60,7 @@ Room* Room::getWest() {
     return NULL;
   }
 }
+//north, same as above except with int 2
 void Room::setNorth(Room* room) {
    exits->insert(make_pair(2, room));
 }
@@ -69,6 +75,7 @@ Room* Room::getNorth() {
     return NULL;
   }
 }
+//south, same as above except with int 3
 void Room::setSouth(Room* room) {
    exits->insert(make_pair(3, room));
 }
@@ -83,16 +90,16 @@ Room* Room::getSouth() {
     return NULL;
   }
 }
-
+//returns list of objects in room
 vector <Objects*>* Room::getObjectlist() {
   return  objectlist;
 }
-
+//constructor
 Room::Room() {
  objectlist = new vector<Objects*>();
  exits = new map<int, Room*>();
 }
-
+//to add an object into the room
 void Room::addObject(char ob[]) {
   Objects* o = new Objects();
   o->setObject(ob);
@@ -103,6 +110,7 @@ void Room::addObject(char ob[]) {
   objectlist->push_back(o);
 }
 
+//to delete an object from a room
 Objects* Room::deleteObject(char ob[]) {
   int index = -1;
   char item[100];
