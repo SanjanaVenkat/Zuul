@@ -31,7 +31,7 @@ void pickupObject(Room* room, vector <Objects*>* inventory) {
     else {
       cout << "Object not valid" << endl;
     }
-    cout << "Which exit do you want to take? Or pickup/drop off items?" << endl;
+
 }
 
 //function to drop object into room (removes from inventory)
@@ -57,7 +57,7 @@ char object[100];
     else {
       cout << "Item not valid" << endl;
     }
-    cout << "Which exit do you want to take? Or pickup/drop off items?" << endl;
+
   }
 
 //prints information for the current room that the player is in
